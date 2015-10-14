@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>zoom2fit.beta by JavaScript</title>
+	<!-- 
+		2015.10.14
+		Cong Min - http://congm.in
+		GitHub - https://github.com/mcc108/zoom2fit
+	-->
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.zoom2fit_b{
+			cursor: pointer;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			height: 228px;
+			width: 150px;
+			-webkit-transition: all 2s;
+			-o-transition: all 2s;
+			transition: all 2s;
+		}
+		.zoom2fit_b>img,.zoom2fit_b.zoom2fit_a{
+			object-fit: contain;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+<div class="zoom2fit_b">
+	<img src="zoom2fit.jpg" />
+</div>
+
+<script type="text/javascript">
+	function hasClass(obj, cls) {
+	    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+	}
+
+	function addClass(obj, cls) {
+	    if (!this.hasClass(obj, cls)){
+	    	obj.className += " " + cls;
+	    }
+	}
+	  
+	function removeClass(obj, cls) {
+	    if (hasClass(obj, cls)) {
+	        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+	        obj.className = obj.className.replace(reg, ' ');
+	    }
+	}
+	  
+	function toggleClass(obj, cls){
+	    if(hasClass(obj, cls)){
+	        removeClass(obj, cls);
+	    }else{
+	        addClass(obj, cls);
+	    }
+	}
+	window.onload = function(){
+		var obj = document.getElementsByClassName('zoom2fit_b');
+		obj[0].onclick = function(){
+			toggleClass(this,"zoom2fit_a");
+		};
+	}
+</script>
+</body>
+</html>

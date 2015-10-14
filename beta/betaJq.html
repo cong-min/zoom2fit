@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>zoom2fit.beta by JQuery</title>
+	<!-- 
+		2015.10.14
+		Cong Min - http://congm.in
+		GitHub - https://github.com/mcc108/zoom2fit
+	-->
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.zoom2fit_b{
+			cursor: pointer;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			height: 228px;
+			width: 150px;
+			object-fit: contain;
+			-webkit-transition: all 2s;
+			-o-transition: all 2s;
+			transition: all 2s;
+		}
+		.zoom2fit_b>img,.zoom2fit_b.zoom2fit_a{
+			object-fit: contain;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+<div class="zoom2fit_b">
+	<img src="zoom2fit.jpg" />
+</div>
+
+<script type="text/javascript" src="jquery.1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var obj = $('.zoom2fit_b');
+		obj.click(function(){
+			$(this).toggleClass("zoom2fit_a");
+		});
+	});
+</script>
+</body>
+</html>
