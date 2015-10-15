@@ -1,6 +1,7 @@
-$(function(){
-	var obj = $('.zoom2fit_b');
-	obj.click(function(){
-		$(this).toggleClass("zoom2fit_a");
-	});
-});
+/*
+	2015.10.14
+	Cong Min - http://congm.in
+	GitHub - https://github.com/mcc108/zoom2fit
+*/
+
+//coding..

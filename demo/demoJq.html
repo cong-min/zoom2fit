@@ -17,24 +17,46 @@
 </head>
 
 <body>
-	<!--
-		<div class="zoom2fit"><img src="zoom2fit.jpg" /></div>
-		zoom2fit.jpg <-> your img src
-	-->
-<div class="zoom2fit"><img src="zoom2fit.jpg" /></div>
+
+<div class="your-img-div"><img src="zoom2fit.jpg" /></div>
+<div class="your-img-div-1"><img src="zoom2fit-1.jpg" /></div>
+<div class="your-video-div">
+<video controls="controls" autoplay="autoplay">
+<source src="zoom2fit.mp4" type="video/ogg" />
+Your browser does not support the video tag.
+</video>
+</div>
 
 <script type="text/javascript" src="jquery.1.11.3.min.js"></script>
 <script type="text/javascript" src="zoom2fitJq.js"></script>
 <script type="text/javascript">
 	/*
-		zoom2fit(className, x, y, height);
-		className -> zoom2fit
-		x -> top/bottom
-		y -> left/right
-		height -> 0.2 (20% witdh will be autofit)
+		$yourImgDiv.zoom2fit({
+			overlay: true/false,	//balck-overlay
+			x: left/right,	  //horizontal
+			y: top/bottom,	  //vertical
+			zoom: 0.2  	//(zoom 20% - relative to the img not the browser)
+		});
 	*/
 	$(function(){
-		zoom2fit("zoom2fit","bottom","right",0.2);
+		$(".your-img-div").zoom2fit({
+			overlay: false,
+			x: "right",
+			y: "bottom",
+			zoom: 0.2
+		});
+		$(".your-img-div-1").zoom2fit({
+			overlay: true,
+			x: "left",
+			y: "bottom",
+			zoom: 0.3
+		});
+		$(".your-video-div").zoom2fit({
+			overlay: true,
+			zoom: 0.5,
+			x: "right",
+			y: "top"
+		});
 	});
 </script>
 </body>
