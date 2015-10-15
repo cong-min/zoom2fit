@@ -15,6 +15,8 @@ $.fn.zoom2fit = function(options) {
 	var zoom2fit_obj_height, zoom2fit_obj_width;
 	zoom2fit = this;
 	zoom2fit_obj = ($(this).find("img").length) ? $(this).find("img") : $(this).find("video");
+	// but it have some problem
+	// sometimes images don't run the following code
 	zoom2fit_obj.on("loadedmetadata load", function () {
         zoom2fit_obj_width = this.videoWidth || $(this).width();
         zoom2fit_obj_height = this.videoHeight || $(this).height();
