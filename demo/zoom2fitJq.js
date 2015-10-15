@@ -20,19 +20,30 @@ function zoom2fit(className, x, y, height){
 		"-webkit-transition": "all 2s",
 		"-o-transition": "all 2s",
 		"transition": "all 2s",
+		"background-color": "rgba(0,0,0,0.2)",
+		"object-fit": "contain"
 	});
+	zoom2fit.css(x, 0);
+	zoom2fit.css(y, 0);
 	zoom2fit_img.css({
 		"height": "100%",
 		"width": "100%",
 		"object-fit": "contain",
 	});
-	zoom2fit.css(x, 0);
-	zoom2fit.css(y, 0);
+	var flag=1;
 	zoom2fit.click(function(){
-		$(this).css({
-			"height": "100%",
-			"width": "100%",
-			"object-fit": "contain",
-		});
+		 if(flag==1){
+		 	$(this).css({
+				"height": "100%",
+				"width": "100%",
+			});
+            flag=0;
+        }else{
+		    $(this).css({
+				"height": zoom2fit_height,
+				"width": zoom2fit_width
+			});
+            flag=1;
+        }
 	});
 }
