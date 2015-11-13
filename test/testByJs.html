@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>zoom2fit.idea by JavaScript</title>
-	<!-- 
+	<title>zoom2fit.test by JavaScript</title>
+	<!--
 		2015.10.14
 		Cong Min - http://congm.in
 		GitHub - https://github.com/mcc108/zoom2fit
@@ -47,14 +47,14 @@
 	    	obj.className += " " + cls;
 	    }
 	}
-	  
+
 	function removeClass(obj, cls) {
 	    if (hasClass(obj, cls)) {
 	        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
 	        obj.className = obj.className.replace(reg, ' ');
 	    }
 	}
-	  
+
 	function toggleClass(obj, cls){
 	    if(hasClass(obj, cls)){
 	        removeClass(obj, cls);
