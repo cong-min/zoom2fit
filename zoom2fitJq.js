@@ -26,7 +26,7 @@ $.fn.zoom2fit = function(options) {
 	});
 	zoom2fit.css(o.x, 0);
 	zoom2fit.css(o.y, 0);
-	if(o.overlay == true){
+	if(o.overlay === true){
 		zoom2fit.css("background-color", "rgba(0,0,0,0.2)");
 	}
 	zoom2fit_obj.css({
@@ -64,4 +64,4 @@ $.fn.zoom2fit = function(options) {
             flag = 1;
         }
 	});
-}
+};
