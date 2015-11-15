@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>zoom2fit.demo by css&amp;js</title>
+    <!-- css部分:start -->
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.zoom2fit_box{
+			cursor: pointer;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			height: 228px;
+			width: 150px;
+            /* 以上样式可自定义 */
+
+			-webkit-transition: all 2s;
+			transition: all 2s;
+		}
+
+        /* 核心css-style */
+		.zoom2fit_box>img,.zoom2fit_box.zoom2fit_a{
+			object-fit: scale-down;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+    <!-- css部分:end -->
+</head>
+
+<body>
+
+    <!-- html部分:start -->
+    <div class="zoom2fit_box">
+    	<img src="zoom2fit.jpg" />
+    </div>
+    <!-- html部分:end -->
+
+
+<!-- javascript部分:start -->
+<script type="text/javascript">
+	function hasClass(obj, cls) {
+	    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+	}
+	function addClass(obj, cls) {
+	    if (!this.hasClass(obj, cls)){
+	    	obj.className += " " + cls;
+	    }
+	}
+	function removeClass(obj, cls) {
+	    if (hasClass(obj, cls)) {
+	        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+	        obj.className = obj.className.replace(reg, ' ');
+	    }
+	}
+	function toggleClass(obj, cls){
+	    if(hasClass(obj, cls)){
+	        removeClass(obj, cls);
+	    }else{
+	        addClass(obj, cls);
+	    }
+	}
+	<div class="your-video-div">
+		<video controls="controls" autoplay="autoplay">
+		<source src="zoom2fit.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	window.onload = function(){
+		var zoom2fit_obj = document.getElementsByClassName('zoom2fit_box');
+		zoom2fit_obj[0].onclick = function(){
+			toggleClass(this,"zoom2fit_a");
+		};
+	}
+    /*
+        如果引用了jquery，则js代码为：
+
+        $(function(){
+            var zoom2fit_obj = $('.zoom2fit_box');
+            zoom2fit_obj.click(function(){
+                $(this).toggleClass("zoom2fit_a");
+            });
+        });
+    */
+</script>
+<!-- javascript部分:end -->
+</body>
+</html>

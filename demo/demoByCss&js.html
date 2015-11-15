@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>zoom2fit.demo by css&amp;js</title>
+    <!-- css部分:start -->
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+        #img_box1{
+			position: fixed;
+			bottom: 0;
+			right: 0;
+            /* demo_box1 固定定位为右下角 */
+
+			width: 150px;   /* box的高宽比例应与内部图片或视频的高宽比例相同 */
+			height: 228px;  /* 图片1原始尺寸 534 × 811 [css高、宽需自行修改] */
+        }
+        #img_box2{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            /* demo_box2 固定定位为左下角 */
+
+			width: 75px;  /* box的高宽比例应与内部图片或视频的高宽比例相同 */
+			height: 114px;   /* 图片2原始尺寸 222 × 337 [css高、宽需自行修改] */
+        }
+		#video_box{
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* video_box 固定定位为左上角 */
+
+			width: 212px;  /* box的高宽比例应与内部图片或视频的高宽比例相同 */
+			height: 120px;   /* 视频原始尺寸 848 × 480 [高、宽需自行修改] */
+		}
+
+        /* 核心css-style */
+		.zoom2fit_box{
+            cursor: pointer;
+			-webkit-transition: all 2s;   /* 放大动画时间 */
+			transition: all 2s;   /* 放大动画时间 */
+		}
+		.zoom2fit_box>img, .zoom2fit_box>video, .zoom2fit_box.zoom2fit_i{
+			object-fit: scale-down;
+			height: 100% !important;
+			width: 100% !important;
+		}
+	</style>
+    <!-- css部分:end -->
+</head>
+
+<body>
+	<h1>Demo By Css&amp;Js</h1>
+	<!-- html部分:start -->
+
+	<!-- 图片 -->
+		<!-- 大图 -->
+    <div id="img_box1" class="zoom2fit_box">
+    	<img src="zoom2fit.jpg" />
+    </div>
+
+		<!-- 小图 -->
+    <div id="img_box2" class="zoom2fit_box">
+        <img src="zoom2fit-mini.jpg" />
+    </div>
+
+	<!-- 视频 -->
+	<div id="video_box" class="zoom2fit_box">
+		<video autoplay="autoplay">
+			<source src="zoom2fit.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+
+    <!-- html部分:end -->
+<!-- javascript部分:start -->
+<script type="text/javascript">
+    /*
+     *  如果已引用了jquery，则下述所有js代码替换为：
+
+        $(function(){
+            var zoom2fit_obj = $('.zoom2fit_box');
+            zoom2fit_obj.click(function(){
+                $(this).toggleClass("zoom2fit_i");
+            });
+        });
+
+    */
+
+    /* 用js模拟jquery中toggleClass()方法 */
+	var zoom2fit_f = {
+		hasClass: function(obj, cls) {
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+		},
+		addClass: function(obj, cls) {
+		    if (!this.hasClass(obj, cls)){
+		    	obj.className += " " + cls;
+		    };
+		},
+		removeClass: function(obj, cls) {
+		    if (this.hasClass(obj, cls)){
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+		        obj.className = obj.className.replace(reg, '');
+		    };
+		},
+		toggleClass: function(obj, cls){
+		    if(this.hasClass(obj, cls)){
+		        this.removeClass(obj, cls);
+		    }else{
+		        this.addClass(obj, cls);
+		    };
+		}
+	};
+	/* 核心js */
+	window.onload = function(){
+		var zoom2fit_obj = document.querySelectorAll('.zoom2fit_box');
+        for(var m = 0; m < zoom2fit_obj.length; m++){
+    		zoom2fit_obj[m].onclick = function(){
+    			zoom2fit_f.toggleClass(this,"zoom2fit_i");
+    		};
+        };
+	};
+
+</script>
+<!-- javascript部分:end -->
+</body>
+</html>
