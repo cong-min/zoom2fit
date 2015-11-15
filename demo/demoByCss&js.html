@@ -2,7 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>zoom2fit.demo by css&amp;js</title>
+	<title>zoom2fit.demo by css&amp;js (beta.0.1)</title>
+	<!--
+		zoom2fit css&js beta.1.0
+		GitHub - https://github.com/mcc108/zoom2fit
+		Cong Min - http://congm.in
+	-->
     <!-- css部分:start -->
 	<style>
 		*{
@@ -11,7 +16,6 @@
 		}
 
         #img_box1{
-			position: fixed;
 			bottom: 0;
 			right: 0;
             /* demo_box1 固定定位为右下角 */
@@ -20,7 +24,6 @@
 			height: 228px;  /* 图片1原始尺寸 534 × 811 [css高、宽需自行修改] */
         }
         #img_box2{
-            position: fixed;
             bottom: 0;
             left: 0;
             /* demo_box2 固定定位为左下角 */
@@ -29,10 +32,9 @@
 			height: 114px;   /* 图片2原始尺寸 222 × 337 [css高、宽需自行修改] */
         }
 		#video_box{
-            position: fixed;
             top: 0;
-            left: 0;
-            /* video_box 固定定位为左上角 */
+            right: 0;
+            /* video_box 固定定位为右上角 */
 
 			width: 212px;  /* box的高宽比例应与内部图片或视频的高宽比例相同 */
 			height: 120px;   /* 视频原始尺寸 848 × 480 [高、宽需自行修改] */
@@ -40,9 +42,12 @@
 
         /* 核心css-style */
 		.zoom2fit_box{
+            position: fixed;
+			z-index: 1001;
             cursor: pointer;
-			-webkit-transition: all 2s;   /* 放大动画时间 */
-			transition: all 2s;   /* 放大动画时间 */
+			background: rgba(0,0,0,0.2);   /* 背景蒙层（若不需要可删掉）[可修改] */
+			-webkit-transition: all 2s;   /* 放大动画时间 [可修改] */
+			transition: all 2s;   /* 放大动画时间 [可修改] */
 		}
 		.zoom2fit_box>img, .zoom2fit_box>video, .zoom2fit_box.zoom2fit_i{
 			object-fit: scale-down;

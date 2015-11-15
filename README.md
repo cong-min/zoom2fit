@@ -55,11 +55,12 @@ zoom2fit
  └─ README.md    //说明及文档
 ```
 
+---
 #### 方式一：css & JavaScript
 * 下载`dist/css&js/zoom2fit.html`文件或`demo/demoByCss&js.html`文件
 
 ##### 分析代码结构：
-1、`html`部分
+##### 1、`html`部分
 * `img`图片
 ```
 <!-- 图片 -->
@@ -81,12 +82,11 @@ zoom2fit
 </div>
 ```
 
-2、`css`部分
+##### 2、`css`部分
 * `id`：主要用于设置初始时css样式
 ```
 /* #img_box, #video_box通用 */
 #box{
-    position: fixed;
     top: 0;
     left: 0;
     /* 初始位置
@@ -108,9 +108,12 @@ zoom2fit
 * `class`：核心css样式
 ```
 .zoom2fit_box{
+    position: fixed;
+    z-index: 1001;
     cursor: pointer;
-    -webkit-transition: all 2s;   /* 放大动画时间 */
-    transition: all 2s;   /* 放大动画时间 */
+    background: rgba(0,0,0,0.2);   /* 背景蒙层（若不需要可删掉）[可修改] */
+    -webkit-transition: all 2s;   /* 放大动画时间 [可修改]  */
+    transition: all 2s;   /* 放大动画时间 [可修改]  */
 }
 .zoom2fit_box>img, .zoom2fit_box>video, .zoom2fit_box.zoom2fit_i{
     object-fit: scale-down;
@@ -119,7 +122,7 @@ zoom2fit
 }
 ```
 
-3、`js`部分
+##### 3、`js`部分
 * `jquery`：如果使用jquery，则js代码为
 ```
 $(function(){
@@ -168,16 +171,67 @@ window.onload = function(){
 ```
 
 ##### 组装你的代码：
-自定义你的html&css&js，可参考[Demo:css&js](http://code.congm.in/zoom2fit/demo/demoByCss&js.html)
+自定义你的html&css&js，可参考页面[Demo:css&js](http://code.congm.in/zoom2fit/demo/demoByCss&js.html)
 
-
+---
 #### 方式二：Jquery Plugin
 * 下载`jquery`文件：[jquery.com](http://jquery.com)或`demo/jquery.min.js`
 * 下载`dist/jquery-plugin/jquery.zoom2fit.min.js`文件
 
-##### 引入js文件：
-在`body`标签前插入代码：
+##### 1、引入js：
+在`</head>`标签前插入代码：
 ```
 <script src="jquery.min.js"></script>
 <script src="jquery.zoom2fit.min.js"></script>
 ```
+
+##### 2、创建html：
+* `img`图片
+```
+<!-- 图片 -->
+<!-- class用于下一步设置zoom2fit -->
+<div class="img_box">
+    <img src="zoom2fit.jpg" />
+</div>
+```
+
+* `video`视频
+```
+<!-- 视频 -->
+<!-- class用于下一步设置zoom2fit -->
+<div class="video_box">
+    <video autoplay="autoplay">
+        <source src="zoom2fit.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
+```
+
+##### 3、设置zoom2fit：
+在上述`<div class="img_box">`或`<div class="video_box">`上调用`zoom2fit()`,
+ `$(...)`即`$(document).ready()`必不可少。
+```
+$(function(){
+  $('.img_box').zoom2fit();   // or $('.video_box').zoom2fit(options);
+});
+```
+##### * 4、`options`参数设置：
+参数设置：
+* `overlay` <=> 是否蒙层true/false
+* `x` <=> 初始在x轴的位置，左/右，left/rgiht
+* `y` <=> 初始在y轴的位置，上/下，top/bottom
+* `zoom` <=> 初始大小，相对于原始尺寸的倍数
+* `speed` <=> 动画速度，单位ms
+
+
+默认值：
+```
+$("#img_box1").zoom2fit({
+    overlay: true,    默认无蒙层
+    x: "left",
+    y: "bottom",    默认右下角
+    zoom: 1,    默认初始大小为原始尺寸
+    speed: 2000    默认动画速度2s(2000ms)
+});
+```
+###### Now！Have fun！

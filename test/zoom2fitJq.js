@@ -16,12 +16,10 @@ $.fn.zoom2fit = function(options) {
 	zoom2fit = this;
 	zoom2fit_obj = ($(this).find("img").length) ? $(this).find("img") : $(this).find("video");
 	zoom2fit.css({
-		"cursor": "pointer",
 		"position": "fixed",
-		"z-index": "1008",
-		"object-fit": "scale-down",
+		"z-index": "1001",
+		"cursor": "pointer",
 		"-webkit-transition": "all 2s",
-		"-o-transition": "all 2s",
 		"transition": "all 2s"
 	});
 	zoom2fit.css(o.x, 0);
@@ -30,12 +28,14 @@ $.fn.zoom2fit = function(options) {
 		zoom2fit.css("background-color", "rgba(0,0,0,0.2)");
 	}
 	zoom2fit_obj.css({
+		"object-fit": "scale-down",
 		"height": "100%",
-		"width": "100%",
-		"object-fit": "scale-down"
+		"width": "100%"
 	});
-	// but it have some problem
-	// sometimes images don't run the following code
+
+	/* 下列代码有一些问题（it have some issues）
+	   有时将不会运行下列代码（sometimes images don't run the following code）
+	*/
 	console.log(zoom2fit_obj);
 	zoom2fit_obj.on("load loadedmetadata", function () {
 		console.log(this);
@@ -64,3 +64,4 @@ $.fn.zoom2fit = function(options) {
             flag = 1;
         }
 	});
+};
