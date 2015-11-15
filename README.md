@@ -25,7 +25,7 @@ http://caniuse.com/#search=object-fit
     * 支持图片与视频的窗口自适应放大
 
 
-## 文档
+## 文档 - [Demo](http://code.congm.in/zoom2fit/demo/demoByCss&js.html)
 ### 开始使用
 目前有两种方式供你选择使用：
 
