@@ -1,5 +1,5 @@
 /*
-	zoom2fit jquery-plugin beta.1.0
+	zoom2fit jquery-plugin beta 0.1.0
 	GitHub - https://github.com/mcc108/zoom2fit
 	Cong Min - http://congm.in
 */

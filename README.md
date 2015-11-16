@@ -1,4 +1,4 @@
-zoom2fit - Zoom To Fit（beta.1.0）
+zoom2fit - Zoom To Fit（beta 0.1.0）
 ===========================
 
 video or image Zoom To Fit in browser with js <br>
@@ -20,7 +20,7 @@ http://caniuse.com/#search=object-fit
 * 敬请期待兼容性更好的插件`zoom2fit-plus`发布
 
 #### 版本迭代
-* `beta.0.1`（2015.11.15）：测试第一版发布
+* `beta 0.1.0`（2015.11.15）：测试第一版发布
     * 目前只支持图片与视频的初始位置为窗口的四个角
     * 支持图片与视频的窗口自适应放大
 
