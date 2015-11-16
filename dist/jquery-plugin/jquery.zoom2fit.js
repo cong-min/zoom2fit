@@ -31,7 +31,7 @@ $.fn.zoom2fit = function(options) {
 		y:  "bottom",
 		zoom: 1,
 		speed: 2000
-	}
+	};
 	var o = $.extend({}, defaults, options);
 	var zoom2fit, zoom2fit_obj;
 	var zoom2fit_height, zoom2fit_width;
