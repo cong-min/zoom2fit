@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>zoom2fit.demo by jquery-plugin (beta.0.1)</title>
+	<!--
+		zoom2fit jquery-plugin beta 0.1.0
+		GitHub - https://github.com/mcc108/zoom2fit
+		Cong Min - http://congm.in
+	-->
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<!-- javascript部分:start -->
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.zoom2fit.js"></script>
+	<script type="text/javascript">
+		/*
+			$("#img_box1").zoom2fit(options);
+			参数取值：
+			  overlay <=> 是否蒙层true/false
+			  x <=> 初始在x轴的位置，左/右，left/rgiht
+			  y <=> 初始在y轴的位置，上/下，top/bottom
+			  zoom <=> 初始大小，相对于原始尺寸的倍数
+			  speed <=> 动画速度，单位ms
+			默认值：
+			$("#img_box1").zoom2fit({
+				overlay: true,    默认无蒙层
+				x: "left",
+				y: "bottom",    默认右下角
+				zoom: 1,    默认初始大小为原始尺寸
+				speed: 2000    默认动画速度2s(2000ms)
+			});
+		*/
+		$(function(){
+			$("#img_box1").zoom2fit({
+				overlay: false,
+				x: "right",
+				y: "bottom",
+				zoom: 0.2,
+				speed: 1000
+			});
+			$("#img_box2").zoom2fit({
+				overlay: true,
+				x: "left",
+				y: "bottom",
+				zoom: 0.3,
+				speed: 3000
+			});
+			$("#video_box").zoom2fit({
+				overlay: true,
+				zoom: 0.5,
+				x: "right",
+				y: "top"
+			});
+		});
+	</script>
+	<!-- javascript部分:end -->
+</head>
+
+<body>
+	<ul>
+		<li><h2>1、<a href="demoByCss&amp;js.html">Demo By Css&amp;Js</a></h2></li>
+		<li><h1>2、Demo By JQuery Plugin</h1></li>
+		<li><h2>Github：<a href="https://github.com/mcc108/zoom2fit">github.com/mcc108/zoom2fit</a></h2></li>
+	</ul>
+	<!-- html部分:start -->
+
+	<!-- 图片 -->
+		<!-- 大图 -->
+    <div id="img_box1">
+    	<img src="zoom2fit.jpg" />
+    </div>
+
+		<!-- 小图 -->
+    <div id="img_box2">
+        <img src="zoom2fit-mini.jpg" />
+    </div>
+
+	<!-- 视频 -->
+	<div id="video_box">
+		<video autoplay="autoplay">
+			<source src="zoom2fit.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+
+    <!-- html部分:end -->
+</body>
+</html>
