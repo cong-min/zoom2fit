@@ -42,8 +42,8 @@ zoom2fit
  │   |   └─ zoom2fit.html         //html&css&js
  |   |   
  |   └─ jquery-plugin    //方式二
- |       ├─ jquery.zoom2fit.js    //jquery plugin
- |       └─ jquery.zoom2fit.min.js
+ |       ├─ jquery.zoom2fit.js    //（3kb）jquery plugin
+ |       └─ jquery.zoom2fit.min.js    //（1kb）
  |
  ├─ demo
  │   ├─ demoByCss&js.html           //方式一:Demo页面
