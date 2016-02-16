@@ -17,7 +17,6 @@ video or image Zoom To Fit in browser with js <br>
 http://caniuse.com/#search=object-fit
 * `object-fit`属性不支持所有IE浏览器及Edge浏览器
 * `object-fit`属性不支持安卓4.4以下的安卓浏览器
-* 敬请期待兼容性更好的插件`zoom2fit-plus`发布
 
 #### 版本迭代
 * `beta 0.1.0`（2015.11.15）：测试第一版发布
